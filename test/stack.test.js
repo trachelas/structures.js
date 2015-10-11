@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 'use strict'
 
-const Stack = require('../src/stack')
-const expect = require('chai').expect
+import Stack from '../src/stack'
+import {expect} from 'chai'
 
 describe('stack', () => {
   it('should maintain internal array private', () => {
