@@ -15,41 +15,41 @@ describe('stack', () => {
             let stack = new Stack();
 
             expect(stack.length).to.equal(0);
-            stack.put(1);
+            stack.push(1);
             expect(stack.length).to.equal(1);
             stack.pop();
             expect(stack.length).to.equal(0);
         });
     });
 
-    describe('put', () => {
+    describe('push', () => {
         it('should return itself', () => {
             let stack = new Stack();
 
-            expect(stack.put(1)).to.equal(stack);
+            expect(stack.push(1)).to.equal(stack);
         });
 
         it('should increase the stack\'s length', () => {
             let stack = new Stack();
             let prevLength = stack.length;
 
-            stack.put(1);
+            stack.push(1);
             expect(stack.length).to.equal(prevLength + 1);
         });
     });
 
     describe('pop', () => {
-        it('should return last putted element', () => {
+        it('should return last pushted element', () => {
             let stack = new Stack();
 
-            stack.put(0).put(1);
+            stack.push(0).push(1);
             expect(stack.pop()).to.equal(1);
         });
 
         it('should decrease the stack\'s length', () => {
             let stack = new Stack();
 
-            stack.put(1);
+            stack.push(1);
             let prevLength = stack.length;
             stack.pop();
             expect(stack.length).to.equal(prevLength - 1);
