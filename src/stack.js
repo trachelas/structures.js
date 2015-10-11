@@ -1,22 +1,24 @@
 'use strict';
 
-function Stack() {
-    let stack = [];
+let stack = Symbol();
 
-    this.length = 0;
-    this.put = function(el) {
-        stack.push(el);
-        this.length++;
+class Stack {
+    constructor() {
+        this[stack] = [];
+    }
 
+    push(el) {
+        this[stack].push(el);
         return this;
-    };
+    }
 
-    this.pop = function() {
-        if (this.length > 0) {
-            this.length--;
-            return stack.pop();
-        }
-    };
+    pop() {
+        return this[stack].pop();
+    }
+
+    get length() {
+        return this[stack].length;
+    }
 }
 
 module.exports = Stack;
