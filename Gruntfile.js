@@ -18,7 +18,8 @@ module.exports = function(grunt) {
       test: {
         options: {
           reporter: 'spec',
-          clearRequireCache: true
+          clearRequireCache: true,
+          require: ['babel/register']
         },
         src: grunt.option('src') || ['test/**/*.test.js']
       }
