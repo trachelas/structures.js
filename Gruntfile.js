@@ -1,38 +1,31 @@
-'use strict';
+'use strict'
 
 module.exports = function(grunt) {
-    grunt.initConfig({
-        jscs: {
-            main: ['**/*.js'],
-            options: {
-                config: '.jscsrc',
-                excludeFiles: [
-                    'coverage/**',
-                    'node_modules/**',
-                    'lib/**'
-                ]
-            }
+  grunt.initConfig({
+    eslint: {
+      options: {
+        configFile: 'eslintrc.json'
+      },
+      target: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js']
+    },
+    watch: {
+      js: {
+        files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*'],
+        tasks: ['eslint', 'mochaTest']
+      }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+          clearRequireCache: true
         },
-        watch: {
-            js: {
-                files: ['src/**/*.js', 'test/**/*'],
-                tasks: ['mochaTest']
-            }
-        },
-        mochaTest: {
-            test: {
-                options: {
-                    reporter: 'spec',
-                    clearRequireCache: true
-                },
-                src: grunt.option('src') || ['test/**/*.test.js']
-            }
-        }
-    });
+        src: grunt.option('src') || ['test/**/*.test.js']
+      }
+    }
+  })
 
-    grunt.loadNpmTasks('grunt-jscs');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-mocha-test');
+  require('load-grunt-tasks')(grunt)
 
-    grunt.registerTask('test', ['mochaTest']);
-};
+  grunt.registerTask('test', ['mochaTest'])
+}

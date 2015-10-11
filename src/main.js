@@ -1,3 +1,3 @@
 module.exports = {
-    stack: require('./stack')
-};
+  stack: require('./stack')
+}

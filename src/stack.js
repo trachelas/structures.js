@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-let stack = Symbol();
+let stack = Symbol()
 
 class Stack {
-    constructor() {
-        this[stack] = [];
-    }
+  constructor() {
+    this[stack] = []
+  }
 
-    push(el) {
-        this[stack].push(el);
-        return this;
-    }
+  push(el) {
+    this[stack].push(el)
+    return this
+  }
 
-    pop() {
-        return this[stack].pop();
-    }
+  pop() {
+    return this[stack].pop()
+  }
 
-    get length() {
-        return this[stack].length;
-    }
+  get length() {
+    return this[stack].length
+  }
 }
 
-module.exports = Stack;
+module.exports = Stack
