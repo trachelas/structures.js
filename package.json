@@ -2,7 +2,7 @@
   "name": "structures.js",
   "version": "0.0.3",
   "description": "Data structures implemented in Javascript",
-  "main": "lib/main.js",
+  "main": "dist/main.js",
   "scripts": {
     "test": "grunt test"
   },
