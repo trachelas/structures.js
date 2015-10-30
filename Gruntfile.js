@@ -36,6 +36,11 @@ module.exports = function(grunt) {
           dest: 'dist/'
         }]
       }
+    },
+    shell: {
+      gitAdd: {
+        command: 'git add . -A'
+      }
     }
   })
 
@@ -43,6 +48,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['mochaTest'])
   grunt.registerTask('publish', function(type) {
-    grunt.task.run(['eslint', 'test', 'babel', 'release:' + type])
+    grunt.task.run(['eslint', 'test', 'babel', 'shell:gitAdd', 'release:' + type])
   })
 }
