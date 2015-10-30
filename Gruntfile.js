@@ -23,10 +23,26 @@ module.exports = function(grunt) {
         },
         src: grunt.option('src') || ['test/**/*.test.js']
       }
+    },
+    babel: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: '**/**.js',
+          dest: 'dist/'
+        }]
+      }
     }
   })
 
   require('load-grunt-tasks')(grunt)
 
   grunt.registerTask('test', ['mochaTest'])
+  grunt.registerTask('publish', function(type) {
+    grunt.task.run(['eslint', 'test', 'release:' + type])
+  })
 }
