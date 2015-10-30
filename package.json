@@ -1,6 +1,6 @@
 {
   "name": "structures.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Data structures implemented in Javascript",
   "main": "lib/main.js",
   "scripts": {
