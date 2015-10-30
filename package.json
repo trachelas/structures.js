@@ -4,7 +4,7 @@
   "description": "Data structures implemented in Javascript",
   "main": "lib/main.js",
   "scripts": {
-    "test": "NODE_ENV=test istanbul cover --dir ./coverage --report html _mocha test -- --recursive"
+    "test": "grunt test"
   },
   "author": "Lucas Vieira <vieiralucas4@gmail.com>",
   "license": "MIT",
